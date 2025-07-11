@@ -36,6 +36,18 @@ body {
   width: 100%;
 }
 
+.logo-container {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+
 .icon {
   font-size: 4rem;
   margin-bottom: 1.5rem;
@@ -91,5 +103,9 @@ body {
   
   .icon {
     font-size: 3rem;
+  }
+  
+  .logo {
+    max-width: 250px;
   }
 } 
