@@ -1,27 +1,21 @@
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Features from './components/Features';
+import ProductShowcase from './components/ProductShowcase';
+import Testimonials from './components/Testimonials';
+import Footer from './components/Footer';
+import TopBar from './components/TopBar';
+
 export default function Home() {
   return (
-    <main className="container">
-      <div className="content">
-        <div className="logo-container">
-          <img 
-            src="/images/logo.png"
-            alt="FILIP 2:10 Logo"
-            className="logo"
-          />
-        </div>
-        <div className="icon">
-          🚧
-        </div>
-        <h1 className="title">
-          Página en Construcción
-        </h1>
-        <p className="subtitle">
-          Estamos trabajando para ofrecerte una mejor experiencia.
-        </p>
-        <p className="message">
-          Pronto estaremos de vuelta con algo increíble.
-        </p>
-      </div>
+    <main>
+      <TopBar />
+      <Header />
+      <Hero />
+      <Features />
+      <ProductShowcase />
+      <Testimonials />
+      <Footer />
     </main>
-  )
+  );
 } 
