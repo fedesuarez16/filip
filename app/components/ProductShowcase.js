@@ -5,6 +5,7 @@ import { useState } from 'react';
 export default function ProductShowcase() {
   const [activeTab, setActiveTab] = useState(0);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [showPopup, setShowPopup] = useState(false);
   
   const showcaseImages = [
     '/images/showcase/1.png',
@@ -12,6 +13,17 @@ export default function ProductShowcase() {
     '/images/showcase/3.png',
   ];
   
+  const handleComprarAhora = () => {
+    setShowPopup(true);
+  };
+
+  const handlePreVenta = () => {
+    const message = "Hola, estoy interesado en la pre-venta exclusiva de Filip 2:10";
+    const whatsappUrl = `https://wa.me/5493516982735?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+    setShowPopup(false);
+  };
+
   const productDetails = [
     {
       title: "Descripción",
@@ -172,13 +184,16 @@ export default function ProductShowcase() {
             <h3 className="text-2xl font-bold mb-2 text-[var(--color-black)]">Filip 2:10 - almohadilla ergonómica para la oración</h3>
             
             
-            <p className="text-3xl font-bold text-[var(--color-primary)] mb-4"></p>
+            <p className="text-3xl font-bold text-[var(--color-primary)] mb-4">Consultar precio</p>
             <p className="text-gray-600 mb-6">
               El producto premium que revolucionará tu día a día. Con características únicas y un diseño elegante, es la elección perfecta para quienes buscan calidad y rendimiento.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <button className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white px-8 py-3 rounded-md font-bold text-lg flex-1">
+              <button 
+                onClick={handleComprarAhora}
+                className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white px-8 py-3 rounded-md font-bold text-lg flex-1"
+              >
                 Comprar Ahora
               </button>
               <button className="border border-gray-300 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] px-8 py-3 rounded-md font-bold text-lg flex-1 transition-colors">
@@ -209,6 +224,30 @@ export default function ProductShowcase() {
             </div>
           </div>
         </div>
+        
+        {/* Popup */}
+        {showPopup && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg p-8 max-w-md mx-4 text-center">
+              <h3 className="text-2xl font-bold mb-4 text-[var(--color-black)]">¡Próximo Lanzamiento!</h3>
+              <p className="text-gray-600 mb-6">Lanzamiento Octubre 2025</p>
+              <div className="flex flex-col space-y-3">
+                <button 
+                  onClick={handlePreVenta}
+                  className="bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] px-6 py-3 rounded-md font-bold"
+                >
+                  Pre-venta Exclusiva
+                </button>
+                <button 
+                  onClick={() => setShowPopup(false)}
+                  className="border border-gray-300 hover:border-[var(--color-primary)] text-gray-600 hover:text-[var(--color-primary)] px-6 py-3 rounded-md font-bold transition-colors"
+                >
+                  Cerrar
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
