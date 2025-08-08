@@ -1,6 +1,6 @@
 export default function Features() {
   // URL de WhatsApp con mensaje predefinido
-  const whatsappUrl = "https://wa.me/+5493516982735?text=Hola,%20me%20interesan%20las%20almohadillas%20para%20oración.";
+  const whatsappUrl = "https://wa.me/5493516982735?text=Hola,%20me%20interesan%20las%20almohadillas%20para%20oración.";
   
   const features = [
     {
